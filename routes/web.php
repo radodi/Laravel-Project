@@ -11,6 +11,7 @@
 |
 */
 
+<<<<<<< HEAD
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -58,6 +59,10 @@ Route::group(['middleware'=>'admin'],function(){
 	Route::get('user/create', 'UserController@create')->name('add_new_user');
 
 
+=======
+Route::get('/', function () {
+    return view('admin.welcome');
+>>>>>>> refs/remotes/radodi/master
 });
 
 Route::group(['middleware'=>'student'],function(){

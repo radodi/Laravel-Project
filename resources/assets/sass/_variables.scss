@@ -1,6 +1,6 @@
 
 // Body
-$body-bg: #f5f8fa;
+$body-bg: #F2F2F2;
 
 // Borders
 $laravel-border-color: darken($body-bg, 10%);
@@ -10,23 +10,32 @@ $panel-default-border: $laravel-border-color;
 $panel-inner-border: $laravel-border-color;
 
 // Brands
-$brand-primary: #3097D1;
-$brand-info: #8eb4cb;
-$brand-success: #2ab27b;
-$brand-warning: #cbb956;
-$brand-danger: #bf5329;
+$brand-primary: #28457E;
+$brand-info: #AB8ECB;
+$brand-success: #2AB27B;
+$brand-warning: #B36908;
+$brand-danger: #FF0C00;
 
 // Typography
+<<<<<<< HEAD
 $font-family-sans-serif: "Raleway", sans-serif;
 $font-size-base: 14px;
 $line-height-base: 1.6;
 $text-color: #636b6f;
+=======
+$font-family-sans-serif: "Arimo", sans-serif;
+$font-family-serif: "Old Standard TT", sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.8;
+$text-color: #6B6B6B;
+>>>>>>> refs/remotes/radodi/master
 
 // Navbar
 $navbar-default-bg: #fff;
 
 // Buttons
 $btn-default-color: $text-color;
+$btn-primary-color: #fff;
 
 // Inputs
 $input-border: lighten($text-color, 40%);
@@ -35,3 +44,6 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+
+//Borders
+$border-radius-base: 0;
