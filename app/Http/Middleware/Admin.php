@@ -19,9 +19,5 @@ class Admin
         return redirect ('/')->with('message','Forbidden');
        }
        return $next($request);
-
-        
-
-
     }
 }

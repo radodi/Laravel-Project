@@ -5,32 +5,27 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                    @if (Auth::user()->role==='admin')
-                      <div class="panel-heading">ADMIN PANEL</div> 
-                    @endif
-                    @if (Auth::user()->role==='dancer')
-                      <div class="panel-heading">DANCERS</div> 
-                    @endif
-                    @if (Auth::user()->role==='arbiter')
-                      <div class="panel-heading">ARBITER PANEL</div> 
-                    @endif
+                <div class="panel-heading">Dashboard</div>
+
                 <div class="panel-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
                     @endif
-                    @if ($message = Session::get('message'))
-
-                        <div class="alert alert-danger">
-
-                            <p>{{ $message }}</p>
-
-                        </div>
-
-                     @endif
-                    You are logged in as  {{ Auth::user()->role }}
-                    @include('includes.menu');
+                    You are logged as {{ Auth::user()->role }}
+                </div>
+                <div class="panel-heading">Manage Permission</div>
+                <div class="panel-body">
+                    @if(checkPermission(['user','admin','arbiter']))
+                    <a href="{{ url('permissions-all-users') }}"><button>Access All Users</button></a>
+                    @endif
+                    @if(checkPermission(['admin','arbiter']))
+                    <a href="{{ url('permissions-admin-arbiter') }}"><button>Access Admin and arbiter</button></a>
+                    @endif
+                    @if(checkPermission(['arbiter']))
+                    <a href="{{ url('permissions-arbiter') }}"><button>Access Only arbiter</button></a>
+                    @endif
                 </div>
             </div>
         </div>

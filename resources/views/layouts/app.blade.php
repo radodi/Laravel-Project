@@ -29,7 +29,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        DANCE COMPETITION 2017
+                        <!-- {{ config('app.name', 'Laravel') }} -->
                     </a>
                 </div>
 
