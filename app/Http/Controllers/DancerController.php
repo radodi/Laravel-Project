@@ -65,7 +65,8 @@ class DancerController extends Controller
      */
     public function show($id)
     {
-        //
+        $dancer = User::findOrFail($id);
+        return view('admin.dancer.show', ['dancer' => $dancer]);
     }
 
     /**

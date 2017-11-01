@@ -21,6 +21,6 @@ class User extends Authenticatable
         return $this->hasOne('App\Profile');
     }
     public function results(){
-        return $this->hasOne('App\Result', 'dancer_id');
+        return $this->hasMany('App\Result', 'dancer_id');
     }
 }

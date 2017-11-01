@@ -11,7 +11,7 @@
 @endif
 <div class="row">
 	<div class="col-md-12">
-		<h2>Оценяване	</h2>
+		<h2>Оценяване</h2>
 		<table class="table table-hover">
 			<thead>
 				<tr>

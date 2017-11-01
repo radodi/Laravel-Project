@@ -36,7 +36,7 @@
                         <li role="presentation" {{Request::is('/') ? 'class=active' : ''}}><a href="{{url('/')}}"><i class="fa fa-tachometer"></i> Табло</a></li>
                         <li role="presentation" {{Request::is('arbiter*') ? 'class=active' : ''}}><a href="{{route('arbiter.index')}}"><i class="fa fa-th-list" aria-hidden="true"></i> Съдии</a></li>
                         <li role="presentation" {{Request::is('dancer*') ? 'class=active' : ''}}><a href="{{route('dancer.index')}}"><i class="fa fa-th-list" aria-hidden="true"></i> Танцьори</a></li>
-                        <li role="presentation" {{Request::is('result*') ? 'class=active' : ''}}><a href="{{route('dancer.index')}}"><i class="fa fa-table" aria-hidden="true"></i> Резултати</a></li>
+                        <li role="presentation" {{Request::is('result*') ? 'class=active' : ''}}><a href="{{route('result')}}"><i class="fa fa-table" aria-hidden="true"></i> Резултати</a></li>
                         <li role="presentation" {{Request::is('vote*') ? 'class=active' : ''}}><a href="{{route('vote')}}"><i class="fa fa-check-square-o" aria-hidden="true"></i> Оценяване</a></li>
                     </ul>
             </div>

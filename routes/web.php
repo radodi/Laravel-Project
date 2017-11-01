@@ -24,4 +24,8 @@ Route::group(['middleware' => 'auth'],function(){
 	Route::get('dancer/{dancer}/pic', 'DancerController@reset_picture')->name('dancer.reset_picture');
 	Route::get('vote', 'VoteController@index')->name('vote');
 	Route::post('vote', 'VoteController@store')->name('vote.store');
+
+	Route::get('result', 'ResultController@index')->name('result');
+	Route::get('result/{id}', 'ResultController@checkInvalid')->name('result.validate');
+
 });
