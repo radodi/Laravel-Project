@@ -13,21 +13,39 @@
         <div class="admin_info">
             <img src="{{asset('pictures')}}/user.png" class=" admin_picture">
             <div class="user">
-                <h4>Радослав Димитров</h4>
-                <h4><a href="#">Профил <small>edit</small></a></h4>
+                @if(Auth::guest())
+                <h4>Гост</h4>
+                @else
+                <h4>{{Auth::user()->name}}</h4>
+                <h4>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">Изход</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                    </a>
+                </h4>
+                @endif
             </div>
         </div>
     </div>
     <div class="container-fluid">
         <div class="row">
             <div class="sidebar">
+                @if(Auth::check())
                     <ul id="demo" class="nav nav-pills nav-stacked">
-                        <li role="presentation" class="active"><a href="#">Табло</a></li>
-                        <li role="presentation"><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Добавяне на съдия</a></li>
-                        <li role="presentation"><a href="#"><i class="fa fa-th-list" aria-hidden="true"></i> Съдии</a></li>
-                        <li role="presentation"><a href="#"><i class="fa fa-plus" aria-hidden="true"></i> Добавяне на състезател</a></li>
-                        <li role="presentation"><a href="#"><i class="fa fa-th-list" aria-hidden="true"></i> Състезатели</a></li>
+                        <li role="presentation" {{Request::is('admin') ? 'class=active' : ''}}><a href="{{route('admin')}}"><i class="fa fa-tachometer"></i> Табло</a></li>
+                        @if(Auth::user()->role == 'admin')
+                        <li role="presentation" {{Request::is('arbiter*') ? 'class=active' : ''}}><a href="{{route('arbiter.index')}}"><i class="fa fa-th-list" aria-hidden="true"></i> Съдии</a></li>
+                        <li role="presentation" {{Request::is('dancer*') ? 'class=active' : ''}}><a href="{{route('dancer.index')}}"><i class="fa fa-th-list" aria-hidden="true"></i> Танцьори</a></li>
+                        <li role="presentation" {{Request::is('result*') ? 'class=active' : ''}}><a href="{{route('result')}}"><i class="fa fa-table" aria-hidden="true"></i> Резултати</a></li>
+                        <li role="presentation" {{Request::is('result*') ? 'class=active' : ''}}><a href="{{route('sumResult')}}"><i class="fa fa-table" aria-hidden="true"></i> FINAL Резултати</a></li
+                        @endif
+                        @if(Auth::user()->role == 'arbiter')
+                        <li role="presentation" {{Request::is('vote*') ? 'class=active' : ''}}><a href="{{route('vote')}}"><i class="fa fa-check-square-o" aria-hidden="true"></i> Оценяване</a></li>
+                        @endif
                     </ul>
+                @endif
             </div>
             <div class="container-fluid dash-content">
                @yield('content')

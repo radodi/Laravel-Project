@@ -17,11 +17,12 @@ html, body {
 		position: relative;
 		top: 15px;
 		a {
-			color: #fff;
+			color: darken($btn-primary-color,10%);
 			font-weight: 600;
-			small{
-				color: $brand-primary;
-			}
+		}
+		a:hover {
+			color: $btn-primary-color;
+			text-decoration: none;
 		}
 		.admin_picture {
 			width: 80px;
@@ -31,6 +32,7 @@ html, body {
 		}
 		.user {
 			display: inline-block;
+			max-width: 240px;
 			h4 {
 				margin:10px 0;	
 			}
@@ -52,6 +54,14 @@ html, body {
 }
 .dash-content{
 	margin-left: 320px!important;
+	padding-top: 15px;
+	.table .thumbnail {
+		display: inline-block!important;
+		margin: 0 5px 0 0 !important; 
+	}
+}
+.login{
+	margin-top: 56px;
 }
  @media only screen and (max-width: 767px) {
  	.sidebar {
