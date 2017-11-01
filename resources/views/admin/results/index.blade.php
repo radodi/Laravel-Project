@@ -1,5 +1,5 @@
 @extends('admin.welcome')
-@section('title', 'Results')
+@section('title', 'Резултати')
 
 @section('content')
 <div class="row">
