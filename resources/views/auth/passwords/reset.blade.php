@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
 <div class="container login">
+=======
+<div class="container">
+>>>>>>> origin/master
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">

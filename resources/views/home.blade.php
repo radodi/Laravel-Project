@@ -13,8 +13,24 @@
                             {{ session('status') }}
                         </div>
                     @endif
+<<<<<<< HEAD
 
                     You are logged in!
+=======
+                    You are logged as {{ Auth::user()->role }}
+                </div>
+                <div class="panel-heading">Manage Permission</div>
+                <div class="panel-body">
+                    @if(checkPermission(['user','admin','arbiter']))
+                    <a href="{{ url('permissions-all-users') }}"><button>Access All Users</button></a>
+                    @endif
+                    @if(checkPermission(['admin','arbiter']))
+                    <a href="{{ url('permissions-admin-arbiter') }}"><button>Access Admin and arbiter</button></a>
+                    @endif
+                    @if(checkPermission(['arbiter']))
+                    <a href="{{ url('permissions-arbiter') }}"><button>Access Only arbiter</button></a>
+                    @endif
+>>>>>>> origin/master
                 </div>
             </div>
         </div>
