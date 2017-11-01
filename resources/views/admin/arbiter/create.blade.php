@@ -5,6 +5,14 @@
 @section('content')
 <div class="row">
 	<div class="col-md-8">
+		@if($errors->any())
+		<div class="alert alert-danger">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			@foreach($errors->all() as $error)
+			<p><strong>Грешка!</strong> {{$error}}</p>
+			@endforeach
+		</div>
+		@endif
 		<h2>Добавяне на съдия</h2>
 		<form action="{{route('arbiter.store')}}" method="POST" role="form" enctype="multipart/form-data">
 			<legend><i class="fa fa-user-plus" aria-hidden="true"></i> Нов Съдия</legend>

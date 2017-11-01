@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Http\Requests\DancerStoreRequest;
+use \App\Http\Requests\DancerUpdateRequest;
 use App\User;
 use App\Profile;
 use File;
@@ -36,7 +38,7 @@ class DancerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DancerStoreRequest $request)
     {
         $dancer = User::create([
             'name'      => $request->name,
@@ -88,7 +90,7 @@ class DancerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DancerUpdateRequest $request, $id)
     {
         $dancer = User::findOrFail($id);
         $dancer->name = $request->name;

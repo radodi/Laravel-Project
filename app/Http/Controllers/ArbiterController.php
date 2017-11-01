@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ArbiterStoreRequest;
+use App\Http\Requests\ArbiterUpdateRequest;
 use App\User;
 use App\Profile;
 use File;
@@ -36,7 +38,7 @@ class ArbiterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArbiterStoreRequest $request)
     {
         $arbiter = User::create([
             'name'      => $request->name,
@@ -86,7 +88,7 @@ class ArbiterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ArbiterUpdateRequest $request, $id)
     {
         $arbiter = User::findOrFail($id);
         $arbiter->name = $request->name;
