@@ -14,7 +14,6 @@ class CreateResultsTable extends Migration
     public function up()
     {
         Schema::create('results', function (Blueprint $table) {
-            $table->increments('id');
             $table->unsignedInteger('arbiter_id');
             $table->unsignedInteger('first_criterion');
             $table->unsignedInteger('second_criterion');
@@ -26,6 +25,8 @@ class CreateResultsTable extends Migration
             //Foreign Kay Constraints
             $table->foreign('arbiter_id')->references('id')->on('users');
             $table->foreign('dancer_id')->references('id')->on('users');
+            //Primary Keys
+            $table->primary(array('arbiter_id', 'dancer_id'));
 
         });
     }

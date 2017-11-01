@@ -52,7 +52,13 @@ html, body {
 }
 .dash-content{
 	margin-left: 320px!important;
+	padding-top: 15px;
+	.table .thumbnail {
+		display: inline-block!important;
+		margin: 0 5px 0 0 !important; 
+	}
 }
+
  @media only screen and (max-width: 767px) {
  	.sidebar {
  		width:100%;
