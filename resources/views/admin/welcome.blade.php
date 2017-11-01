@@ -13,8 +13,19 @@
         <div class="admin_info">
             <img src="{{asset('pictures')}}/user.png" class=" admin_picture">
             <div class="user">
-                <h4>Радослав Димитров</h4>
-                <h4><a href="#">Профил <small>edit</small></a></h4>
+                @if(Auth::guest())
+                <h4>Гост</h4>
+                @else
+                <h4>{{Auth::user()->name}}</h4>
+                <h4>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">Изход</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                    </a>
+                </h4>
+                @endif
             </div>
         </div>
     </div>
