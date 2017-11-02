@@ -70,7 +70,7 @@ class ResultController extends Controller
     			$invalid_vote=Result::where('dancer_id', '=', $result->dancer_id)
     			->where('arbiter_id', '=', $result->arbiter_id)->update(['invalid' =>true]);
                 //calculate summ
-              $valid_results=Result::where('invalid', '=', 0)->get();
+              $valid_results=Result::where('invalid', '=',0)->get();
               foreach ($valid_results as $valid_result) {
                    $first_criterion = DB::table('results')
                    ->where('dancer_id', '=', $valid_result->dancer_id)
@@ -81,9 +81,7 @@ class ResultController extends Controller
                    $third_criterion = DB::table('results')
                    ->where('dancer_id', '=', $valid_result->dancer_id)
                    ->avg('third_criterion');
-              
                      $sum= $first_criterion+$second_criterion+$third_criterion;
-                     $sum++;
                     $final=Profile::where('user_id', '=', $valid_result->dancer_id)->update(['result' => $sum]);
               }
         }
