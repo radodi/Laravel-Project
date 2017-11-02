@@ -88,5 +88,9 @@ body {
   .dash-content {
     margin-left: auto !important;
   }
+
+  td {
+    text-align: center;
+  }
 }
 

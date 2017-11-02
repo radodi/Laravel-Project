@@ -6,6 +6,7 @@
     <title>Discover Dance</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/landing.css')}}">
+    <link rel="icon" type="text/css" href="{{asset('images/logo1.png')}}">
 </head>
 <body>
     <div class="container">
@@ -58,7 +59,7 @@
                 <i class="fa fa-star-o" aria-hidden="true"></i>
             </h1>
             @foreach($dancers as $dancer)
-            <div class="thumbnail" style="width:300px; display: inline-block; ">
+            <div class="thumbnail" style="width:270px; display: inline-block; ">
             <img class="thumbnail" width="200" src="{{asset('pictures')}}/{{$dancer->profile->picture}}" alt="{{$dancer->name}} Picture">
             <div class="caption">
                 <p><strong><i class="fa fa-user" aria-hidden="true"></i> Име: </strong>{{$dancer->name}}</p>
