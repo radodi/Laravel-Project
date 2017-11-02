@@ -103,7 +103,7 @@ class ArbiterController extends Controller
                 'picture' => $filename,
             ]);
 
-            if ($old_picture != 'user.png') {
+            if ($old_picture !== 'user.png') {
                 $delete_file = public_path('pictures'). '/' .$old_picture;
                 File::delete($delete_file);
             }
@@ -136,7 +136,7 @@ class ArbiterController extends Controller
         $arbiter = User::findOrFail($id);
         $old_picture = $arbiter->profile->picture;
 
-        if ($old_picture != 'user.png') {
+        if ($old_picture !== 'user.png') {
         $arbiter->profile()->update(['picture' => 'user.png']);
         $delete_file = public_path('pictures'). '/' .$old_picture;
         File::delete($delete_file);

@@ -107,7 +107,7 @@ class DancerController extends Controller
                 'country' => $request->country,
             ]);
 
-            if ($old_picture != 'user.png') {
+            if ($old_picture !== 'user.png') {
                 $delete_file = public_path('pictures'). '/' .$old_picture;
                 File::delete($delete_file);
             }
@@ -135,7 +135,7 @@ class DancerController extends Controller
         $delete_file = public_path('pictures'). '/' .$dancer->profile->picture;
         $dancer->profile->delete();
         $dancer->delete();
-        if ($dancer->profile->picture != 'user.png') {
+        if ($dancer->profile->picture !== 'user.png') {
             File::delete($delete_file);
         }
         return redirect()->route('dancer.index')->with('message', 'Успешно изтрихте танцьор ' . $dancer->name . '.');

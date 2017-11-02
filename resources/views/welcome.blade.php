@@ -44,7 +44,7 @@
         <div class="col-md-6">
         <h3> <i class="fa fa-users" aria-hidden="true"></i> Съдии</h3>
         @foreach($arbiters as $arbiter)
-            <div class="thumbnail" style="width:150px; display: inline-block; vertical-align: top;">
+            <div class="thumbnail" style="width:170px; display: inline-block; vertical-align: top;">
             <img class="thumbnail" width="150" src="{{asset('pictures')}}/{{$arbiter->profile->picture}}" alt="{{$arbiter->name}} Picture">
             <div class="caption">
                 <p>{{$arbiter->name}}</p>
