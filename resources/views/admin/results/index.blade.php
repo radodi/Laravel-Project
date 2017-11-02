@@ -18,6 +18,7 @@
 			<div class="caption">
 				<p><strong><i class="fa fa-user" aria-hidden="true"></i> Име: </strong>{{$dancer->name}}</p>
 				<p><strong><i class="fa fa-globe" aria-hidden="true"></i> Държава: </strong>{{$dancer->profile->country}}</p>
+				<p><strong><i class="fa fa-handshake-o" aria-hidden="true"></i> Краен резултат: </strong> {{$dancer->profile->result}}</p>
 				<p><strong><i class="fa fa-sliders" aria-hidden="true"></i> Резултати</strong></p>
 			</div>
 			<table class="table table-hover">
@@ -34,7 +35,7 @@
 				@endforeach
 			</table>
 			<p class="text-center">
-				<a href="{{route('result.validate',$dancer->id)}}" class="btn btn-primary">Невалиден вот</a>
+				<a href="{{route('result.validate',$dancer->id)}}" class="btn btn-primary">Изчисли резултат</a>
 			</p>
 		</div>
 		@endforeach

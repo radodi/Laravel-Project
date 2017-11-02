@@ -19,10 +19,10 @@ class Result extends Model
     ];
 
     public function dancer(){
-    	return $this->belongsTo('App\User');
+    	return $this->belongsTo('App\User','dancer_id', 'id');
     }
     public function arbiter(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User','arbiter_id', 'id');
     }
 
 

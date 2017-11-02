@@ -68,7 +68,28 @@ class ResultController extends Controller
     			->where('arbiter_id', '=', $result->arbiter_id)->update(['invalid' => true]);
     		}
     	}
+        self::calcResult($id);
     	return redirect()->route('result');
+    }
+    public function calcResult($id){
+        $results = Result::where('invalid', '=', 0)
+                            ->where('dancer_id', '=', $id)
+                            ->get();
+       $criterions = 0;
+       $result_sum = 0;
+        foreach ($results as $result) {
+            $result_sum +=  $result->first_criterion 
+                            +$result->second_criterion 
+                            +$result->third_criterion;
+            $criterions += 3;
+        }
+        if($criterions != 0){
+            $result = $result_sum / $criterions;
+        } else {
+            $result = 0;
+        }
+
+        $profile = Profile::where('user_id', '=', $id)->update(['result'=>$result]);
     }
     
 }

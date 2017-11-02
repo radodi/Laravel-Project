@@ -1,0 +1,13 @@
+h1 {
+  color: #DB098C;
+}
+
+h3 {
+  color: #005DAB;
+}
+
+.box {
+  display: inline-block !important;
+  vertical-align: top;
+}
+

@@ -3,26 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Profile;
+use App\Result;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
-    {
-        return view('admin.dashboard');
+    {   
+        $dancers = User::where('role', '=', 'dancer')->get();
+        $arbiters = User::where('role', '=', 'arbiter')->get();
+        $results = Profile::where('result', '!=', null)->orderBy('result', 'desc')->get();
+        return view('welcome', ['results'=>$results, 'arbiters'=>$arbiters, 'dancers'=>$dancers]);
     }
 }

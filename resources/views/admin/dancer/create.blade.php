@@ -23,7 +23,7 @@
 			</div>
 			<div class="form-group">
 				<label for="email">Имейл</label>
-				<input type="text" class="form-control" id="email" name="email" value="{{old('mail')}}">
+				<input type="text" class="form-control" id="email" name="email" value="{{old('email')}}">
 			</div>
 			<div class="form-group">
 				<label for="country">Държава</label>

@@ -23,8 +23,8 @@ class CreateResultsTable extends Migration
             $table->timestamps();
 
             //Foreign Kay Constraints
-            $table->foreign('arbiter_id')->references('id')->on('users');
-            $table->foreign('dancer_id')->references('id')->on('users');
+            $table->foreign('arbiter_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('dancer_id')->references('id')->on('users')->onDelete('cascade');
             //Primary Keys
             $table->primary(array('arbiter_id', 'dancer_id'));
 

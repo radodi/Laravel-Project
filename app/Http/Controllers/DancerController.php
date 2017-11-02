@@ -7,6 +7,7 @@ use \App\Http\Requests\DancerStoreRequest;
 use \App\Http\Requests\DancerUpdateRequest;
 use App\User;
 use App\Profile;
+use App\Result;
 use File;
 
 class DancerController extends Controller
@@ -132,11 +133,11 @@ class DancerController extends Controller
     {
         $dancer = User::findOrFail($id);
         $delete_file = public_path('pictures'). '/' .$dancer->profile->picture;
+        $dancer->profile->delete();
+        $dancer->delete();
         if ($dancer->profile->picture != 'user.png') {
             File::delete($delete_file);
         }
-        $dancer->profile->delete();
-        $dancer->delete();
         return redirect()->route('dancer.index')->with('message', 'Успешно изтрихте танцьор ' . $dancer->name . '.');
     }
 
